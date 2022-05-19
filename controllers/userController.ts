@@ -1,4 +1,6 @@
 import BaseController from './baseController';
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 class UserController extends BaseController {
 	/** Returns a token and the userId to the FE if log in is successful
