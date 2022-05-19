@@ -1,6 +1,8 @@
-class BaseController {
+export default class BaseController {
+    salt: string;
+    model: any;
 	constructor(model, salt) {
-		this.model = model;
+		this.model = model
 		this.salt = salt;
 	}
 
@@ -12,4 +14,4 @@ class BaseController {
 	};
 }
 
-module.exports = BaseController;
+// module.exports = BaseController;

@@ -1,4 +1,4 @@
-import BaseController from './baseController.ts';
+import BaseController from './baseController';
 
 class UserController extends BaseController {
 	/** Returns a token and the userId to the FE if log in is successful
