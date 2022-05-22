@@ -27,7 +27,6 @@ import NetLiqChart from './Charts/NetLiqChart.jsx';
 import HypotheticalGrowthChart from './Charts/HypotheticalGrowth.jsx';
 import XIRRChart from './Charts/XIRR.jsx';
 import TWRChart from './Charts/TWR.jsx';
-import Chart from './Chart.jsx';
 import Transactions from './Transactions.jsx';
 
 function Copyright(props) {
