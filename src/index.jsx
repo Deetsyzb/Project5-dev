@@ -1,10 +1,14 @@
 import './index.css';
+import mongoose from 'mongoose'
 import reportWebVitals from './reportWebVitals';
 import React, { lazy, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Switch } from 'react-router-dom';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
+
+mongoose.connect("mongodb://localhost/project5")
+
 
 
 const Homepage = lazy(() => import('./components/Blog/Blog.jsx'));

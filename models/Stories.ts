@@ -9,4 +9,4 @@ const storiesSchema = new Schema(
 	{ timestamps: true }
 );
 
-module.exports = model('User', storiesSchema);
+export default model('Story', storiesSchema);
