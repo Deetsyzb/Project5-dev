@@ -24,7 +24,7 @@ const userSeeds = [
 	},
 ];
 
-runSeeder = async () => {
+const runSeeder = async () => {
 	console.log('test');
 	// delete all existing records in the DB
 	await User.deleteMany({});
