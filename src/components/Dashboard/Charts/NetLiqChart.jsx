@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
+import moment from 'moment'
+
 
 const NetLiqChart = () => {
 	const d3Chart = useRef();
