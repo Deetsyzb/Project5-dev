@@ -1,7 +1,10 @@
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-import User from '../models/Users';
-import bcrypt from 'bcrypt';
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config();
+const User = require("../models/User.js");
+// const Group = require("../models/Group.js");
+
+const bcrypt = require("bcrypt");
 
 const hash = bcrypt.hashSync('123', 10);
 
@@ -16,7 +19,7 @@ const userSeeds = [
 		password: hash,
 	},
 	{
-		name: 'Deshawn',
+		username: 'Deshawn',
 		email: 'deshawn@gmail.com',
 		password: hash,
 	}, 
