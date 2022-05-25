@@ -14,14 +14,12 @@ const userSeeds = [
 		username: 'Cheok',
 		email: 'gcheok88@gmail.com',
 		password: hash,
-		address: '0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266',
 	},
 	{
 		name: 'Deshawn',
 		email: 'deshawn@gmail.com',
 		password: hash,
-		address: '0x70997970c51812dc3a010c7d01b50e0d17dc79c8',
-	},
+	}, 
 ];
 
 const runSeeder = async () => {
