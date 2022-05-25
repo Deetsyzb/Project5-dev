@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-dotenv.config();
 import User from "../models/User";
 import bcrypt from "bcrypt";
 
+dotenv.config();
 
 const hash = bcrypt.hashSync('123', 10);
 
