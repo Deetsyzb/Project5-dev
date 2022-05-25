@@ -1,7 +1,10 @@
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-import User from '../models/Users';
-import bcrypt from 'bcrypt';
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config();
+const User = require("../models/User.js");
+// const Group = require("../models/Group.js");
+
+const bcrypt = require("bcrypt");
 
 const hash = bcrypt.hashSync('123', 10);
 
@@ -14,14 +17,12 @@ const userSeeds = [
 		username: 'Cheok',
 		email: 'gcheok88@gmail.com',
 		password: hash,
-		address: '0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266',
 	},
 	{
-		name: 'Deshawn',
+		username: 'Deshawn',
 		email: 'deshawn@gmail.com',
 		password: hash,
-		address: '0x70997970c51812dc3a010c7d01b50e0d17dc79c8',
-	},
+	}, 
 ];
 
 const runSeeder = async () => {
