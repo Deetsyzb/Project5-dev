@@ -1,10 +1,9 @@
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
-dotenv.config();
-const User = require("../models/User.js");
-// const Group = require("../models/Group.js");
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import User from "../models/User";
+import bcrypt from "bcrypt";
 
-const bcrypt = require("bcrypt");
+dotenv.config();
 
 const hash = bcrypt.hashSync('123', 10);
 
@@ -36,7 +35,7 @@ const runSeeder = async () => {
 	const allNames = await User.find().select('name');
 	console.log('All the users in our app', allNames);
 	// get all the userIds
-	const userIds = allNames.map((el) => el._id);
+	const userIds = allNames.map((el: { _id: any; }) => el._id);
 	console.log('All the userIds in our app', userIds);
 };
 
