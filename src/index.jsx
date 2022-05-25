@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route, Switch } from 'react-router-dom';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 
-mongoose.connect("mongodb://localhost/project5")
+// mongoose.connect("mongodb://localhost/project5")
 
 
 
@@ -27,12 +27,13 @@ root.render(
 		<Suspense
 			fallback={
 				<div>
-					<Backdrop
+					{/* <Backdrop
 						sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
 						open={open}
 					>
 						<CircularProgress color='inherit' />
-					</Backdrop>
+					</Backdrop> */}
+					Loading Page...
 				</div>
 			}
 		>
