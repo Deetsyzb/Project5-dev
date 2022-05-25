@@ -6,7 +6,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Switch } from 'react-router-dom';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
-
+import App from './roomSelect.tsx';
 // mongoose.connect("mongodb://localhost/project5")
 
 
@@ -38,7 +38,7 @@ root.render(
 			}
 		>
 			<Routes>
-				<Route path='/' element={<Homepage />} />
+				<Route path='/' element={<App />} />
 				<Route path='signup' element={<SignUpPage />} />
 				<Route path='signin' element={<SignInPage />} />
 				<Route path='dashboard' element={<Dashboard />} />
