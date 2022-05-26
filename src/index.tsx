@@ -19,7 +19,7 @@ import userRouter from '../routes/userRoutes'
 import UserController from '../controllers/userController'
 
 // Express
-const app = express()
+// const app = express()
 
 // Mongooose
 async function main() {
