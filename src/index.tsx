@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import App from './roomSelect';
+import './polyfills'
 // import Modelss
 import User from './models/User'
 import Story from './models/Stories'
@@ -15,8 +16,10 @@ import Message from './models/Messages'
 // import Routes
 import userRouter from '../routes/userRoutes'
 // // import Controllers
-// import userController from '../controllers/userController'
+import UserController from '../controllers/userController'
 
+// Express
+const app = express()
 
 // Mongooose
 async function main() {
