@@ -1,11 +1,12 @@
 {
 	"compilerOptions": {
-		"target": "es5",
+		"target": "es6",
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"allowJs": true,
 		"skipLibCheck": true,
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,
+		"outDir": "dist/js",
 		"strict": true,
 		"forceConsistentCasingInFileNames": true,
 		"noFallthroughCasesInSwitch": true,
@@ -16,5 +17,6 @@
 		"noEmit": true,
 		"jsx": "react-jsx"
 	},
-	"include": ["src", "routes", "seeders", "controllers", "seeders", "models"]
+	"include": ["src", "routes", "seeders", "controllers", "seeders", "models"],
+	"exclude": ["src/types/*.ts", "node_modules", ".vscode"]
 }
