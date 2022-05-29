@@ -8,13 +8,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 // import Modelss
-import User from './models/User'
-import Story from './models/Stories'
-import Message from './models/Messages'
+import User from './models/User';
+import Story from './models/Stories';
+import Message from './models/Messages';
 // import Routes
-import userRouter from '../routes/userRoutes'
+import userRouter from '../routes/userRoutes';
 import Chatroom from './components/SetNameChat.jsx';
-import Composition from './components/Composition.jsx'
+import Composition from './components/Composition.jsx';
 
 // import Models
 // import User from './models/User.ts'
@@ -23,7 +23,8 @@ import Composition from './components/Composition.jsx'
 // // import Routes
 // import userRouter from './routes/userRoutes'
 // // import Controllers
-import UserController from '../controllers/userController'	
+import UserController from '../controllers/userController';
+import StoryGenerator from './components/StoryGeneration';
 
 // Express
 // const app: Express = express()
@@ -32,9 +33,9 @@ import UserController from '../controllers/userController'
 async function main() {
 	await mongoose.connect('mongodb://localhost:27017/project5');
 }
-	
+
 main().catch((err) => console.log(err));
-	
+
 const Homepage = lazy(() => import('./components/Blog/Blog.jsx'));
 const SignUpPage = lazy(() => import('./components/SignUp.jsx'));
 const SignInPage = lazy(() => import('./components/SignIn.jsx'));
@@ -51,7 +52,8 @@ root.render(
 		<Suspense
 			fallback={
 				<div>
-					// {/* <Backdrop
+					//{' '}
+					{/* <Backdrop
 					// 	sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
 					// 	open={open}
 					// >
@@ -62,8 +64,9 @@ root.render(
 			}
 		>
 			<Routes>
-				<Route path='/' element={<Homepage/>} />
-				<Route path='chat' element={<Chatroom/>} />
+				<Route path='storygenerator' element={<StoryGenerator />} />
+				<Route path='/' element={<Homepage />} />
+				<Route path='chat' element={<Chatroom />} />
 				<Route path='signup' element={<SignUpPage />} />
 				<Route path='signin' element={<SignInPage />} />
 				<Route path='dashboard' element={<Dashboard />} />
