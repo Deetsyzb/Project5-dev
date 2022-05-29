@@ -3,10 +3,12 @@ import mongoose from 'mongoose';
 import reportWebVitals from './reportWebVitals';
 import React, { lazy, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Routes, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, } from 'react-router-dom';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
-import App from './roomSelect.tsx';
+import Chatroom from './components/SetNameChat.jsx';
+import Composition from './components/Composition.jsx'
+
 // import Models
 // import User from './models/User.ts'
 // import Story from './models/Stories'
@@ -51,8 +53,8 @@ root.render(
 			}
 		>
 			<Routes>
-				<Route path='/' element={<Homepage />} />
-				<Route path='chat' element={<App/>} />
+				<Route path='/' element={<Homepage/>} />
+				<Route path='chat' element={<Chatroom/>} />
 				<Route path='signup' element={<SignUpPage />} />
 				<Route path='signin' element={<SignInPage />} />
 				<Route path='dashboard' element={<Dashboard />} />
