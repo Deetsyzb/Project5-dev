@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import reportWebVitals from './reportWebVitals';
 import React, { lazy, Suspense } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Routes, Route, } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Switch } from 'react-router-dom';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import Chatroom from './components/SetNameChat.jsx';
