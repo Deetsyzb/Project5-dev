@@ -1,6 +1,6 @@
 import { Schema, model } from 'mongoose';
 
-const storiesSchema = new Schema(
+const storiesSchema: Schema = new Schema(
 	{
 		creatorID: Number,
 		content: String,
