@@ -23,7 +23,13 @@ io.on("connection", (socket) => {
   socket.on("send_message", (data) => {
     socket.to(data.room).emit("receive_message", data)
   })
-  socket.on("disconnect", () => {
+
+  socket.on("send-changes", delta => {
+    socket.broadcast.emit("receive-changes", delta)
+
+  })
+
+socket.on("disconnect", () => {
     console.log("User Disconnected:",socket.id);
   })
 });
