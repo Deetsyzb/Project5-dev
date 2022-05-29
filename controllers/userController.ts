@@ -7,7 +7,7 @@ class UserController extends BaseController {
 	 * @param {string} email
 	 * @param {string} password
 	 */
-	async logIn(req, res) {
+	async logIn(req: { body: { email: any; password: any; }; }, res: { send: any; }) {
 		console.log('logging in');
 		const { email, password } = req.body;
 		console.log('email', email);
@@ -39,3 +39,4 @@ class UserController extends BaseController {
 		}
 	}
 }
+export default UserController
