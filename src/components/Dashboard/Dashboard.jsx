@@ -28,6 +28,7 @@ import HypotheticalGrowthChart from './Charts/HypotheticalGrowth.jsx';
 import XIRRChart from './Charts/XIRR.jsx';
 import TWRChart from './Charts/TWR.jsx';
 import Transactions from './Transactions.jsx';
+import StoryGenerator from './StoryGeneration'
 
 function Copyright(props) {
 	return (
@@ -199,7 +200,7 @@ function DashboardContent() {
 										height: 500,
 									}}
 								>
-									{selectedChart === '' && <NetLiqChart />}
+									{selectedChart === '' && <StoryGenerator />}
 									{selectedChart === 'HypotheticalGrowth' && (
 										<HypotheticalGrowthChart />
 									)}
