@@ -1,8 +1,8 @@
 import './App.css' ;
 import io from 'socket.io-client';
 import { useState } from 'react';
-import Chat from './ChatComponent.jsx'
-import Composition from './Composition.jsx'
+import Chat from './ChatComponent'
+import Composition from './Composition'
 
 const socket = io("http://localhost:3001");
 

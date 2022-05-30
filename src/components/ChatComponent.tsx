@@ -2,9 +2,9 @@ import React from 'react';
 import { useState, useEffect} from 'react';
 import ScrollToBottom from 'react-scroll-to-bottom';
 
-function Chat({socket,username,room}) {
-  const [currentMessage, setCurrentMessage] = useState("")
-  const [messageList,setMessageList] = useState ([])
+function Chat({socket,username,room} : {socket:any,username:string,room:any}) {
+  const [currentMessage, setCurrentMessage] = useState<string>("")
+  const [messageList,setMessageList] = useState<any[]>([])
 
   const sendMessage = async () => {
     if (currentMessage !== "") {
@@ -18,14 +18,14 @@ function Chat({socket,username,room}) {
       } 
       
       await socket.emit("send_message", messageData)
-      setMessageList((list) => [...list, messageData])
+      setMessageList((list: any) => [...list, messageData])
       setCurrentMessage("")
     }
   }
 
   useEffect(()=>{
-    socket.on("receive_message",(data) => {
-      setMessageList((list) => [...list, data])
+    socket.on("receive_message",(data: any) => {
+      setMessageList((list: any) => [...list, data])
     });
   }, [socket]);
 
@@ -37,7 +37,7 @@ function Chat({socket,username,room}) {
         
       <div className="chat-body">
         <ScrollToBottom className = "message-container">
-        {messageList.map((messageContent) => {
+        {messageList.map((messageContent: { author: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | null | undefined; message: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; time: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }) => {
           return (<div className="message" id={username === messageContent.author ? "you":"other"}>
           <div>
               <div className="message-content">
