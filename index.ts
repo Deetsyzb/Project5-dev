@@ -2,6 +2,22 @@ import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
 import cors from "cors"
+import mongoose from 'mongoose';
+// import Models
+import User from './models/User';
+import Story from './models/Stories';
+import Message from './models/Messages';
+// import Routes
+import userRouter from './routes/userRoutes';
+// // import Controllers
+import UserController from './controllers/userController';
+
+// Mongooose
+async function main() {
+	await mongoose.connect('mongodb://localhost:27017/project5');
+}
+
+main().catch((err) => console.log(err));
 
 const app = express();
 app.use(cors)
