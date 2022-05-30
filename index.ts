@@ -3,6 +3,7 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 import cors from "cors"
 import mongoose from 'mongoose';
+import verifyToken from './middlewares/auth'
 // import Models
 import User from './models/User';
 import Story from './models/Stories';
@@ -13,14 +14,17 @@ import userRouter from './routes/userRoutes';
 import UserController from './controllers/userController';
 
 // Mongooose
-async function main() {
-	await mongoose.connect('mongodb://localhost:27017/project5');
-}
+mongoose.connect("mongodb://127.0.0.1:27017/project5", () => {
+  console.log("connected to mongodb");
+});
 
-main().catch((err) => console.log(err));
 
 const app = express();
 app.use(cors)
+app.use(express.urlencoded({ extended: false })); // handles req.body from form requests
+app.use(express.json()); // handles json from axios post requests
+app.use(express.static("public"));
+
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
     cors: {
@@ -53,3 +57,11 @@ socket.on("disconnect", () => {
 httpServer.listen(3001, () => {
   console.log("Server listening on port 3001")
 })
+
+// Routes
+app.use(userRouter);
+
+
+
+const PORT: string | number = process.env.PORT || 3004
+app.listen(PORT);

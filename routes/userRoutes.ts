@@ -1,14 +1,8 @@
 import { Router } from 'express';
+import UserController from '../controllers/userController';
 
-const userRouter = Router();
+const router: Router = Router();
 
-type NewType = {
-	controller: any;
-};
-
-export default function ({ controller }: NewType) {
-	userRouter.post('/login', controller.logIn.bind(controller));
-	userRouter.post('/signup', controller.signUp.bind(controller));
-
-	return userRouter;
-};
+router.post("/login", UserController.login);
+	
+export default router;
