@@ -17,6 +17,6 @@
 		"noEmit": true,
 		"jsx": "react-jsx"
 	},
-	"include": ["src", "routes", "seeders", "controllers", "seeders", "models"],
+	"include": ["src", "routes", "seeders", "controllers", "seeders", "models", "models", "index.ts"],
 	"exclude": ["src/types/*.ts", "node_modules", ".vscode"]
 }
