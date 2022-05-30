@@ -4,12 +4,12 @@ import 'quill/dist/quill.snow.css';
 import { io } from 'socket.io-client'
 
 export default function Composition() {
-  const [socket,setSocket] = useState();
-  const [quill,setQuill] = useState();
+  const [socket,setSocket] = useState<any>();
+  const [quill,setQuill] = useState<any>();
 
 
   useEffect(() => {
-    const s = io("http://localhost:3001")
+    const s: any = io("http://localhost:3001")
     setSocket(s)
     return () => {
       s.disconnect()
@@ -18,7 +18,7 @@ export default function Composition() {
 
   useEffect(() => {
     if (socket == null || quill == null) return
-    const handler =  (delta) => {
+    const handler =  (delta: any) => {
       quill.updateContents(delta)
     }
     socket.on('receive-changes',handler)
@@ -30,7 +30,7 @@ export default function Composition() {
 
   useEffect(() => {
     if (socket == null || quill == null) return
-    const handler =  (delta,oldDelta,source) => {
+    const handler =  (delta: any,oldDelta: any,source: string) => {
       if (source !== "user") return
       socket.emit("send-changes",delta)
     }
@@ -43,7 +43,7 @@ export default function Composition() {
 
  
 
-  const wrapperRef = useCallback(wrapper => {
+  const wrapperRef = useCallback((wrapper: { innerHTML: string; append: (arg0: HTMLDivElement) => void; } | null) => {
     if (wrapper == null) return
 
     wrapper.innerHTML = ""
