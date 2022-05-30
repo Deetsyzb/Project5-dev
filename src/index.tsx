@@ -13,7 +13,7 @@ import Story from './models/Stories';
 import Message from './models/Messages';
 // import Routes
 import userRouter from '../routes/userRoutes';
-import Chatroom from './components/SetNameChat.jsx';
+import Chatroom from './components/SetNameChat';
 import Composition from './components/Composition.jsx';
 
 // import Models
