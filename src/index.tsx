@@ -1,23 +1,21 @@
-// import express, { Express } from "express"
-import { createServer } from 'http';
 import reportWebVitals from './reportWebVitals';
 import React, { lazy, Suspense } from 'react';
+// ReactRouter
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// Components
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
-
-import Chatroom from './components/SetNameChat.jsx';
-
+import Chatroom from './components/SetNameChat';
 import Composition from './components/Composition.jsx';
 import StoryGenerator from './components/StoryGeneration';
 
 
-
-const Homepage = lazy(() => import('./components/Blog/Blog.jsx'));
-const SignUpPage = lazy(() => import('./components/SignUp.jsx'));
-const SignInPage = lazy(() => import('./components/SignIn.jsx'));
-const Dashboard = lazy(() => import('./components/Dashboard/Dashboard.jsx'));
+	
+const Homepage = lazy(() => import('./components/Blog/Blog'));
+const SignUpPage = lazy(() => import('./components/SignUp'));
+const SignInPage = lazy(() => import('./components/SignIn'));
+const Dashboard = lazy(() => import('./components/Dashboard/Dashboard'));
 
 const rootElement = document.createElement('div');
 
