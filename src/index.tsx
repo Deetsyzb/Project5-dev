@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 // import Chatroom from './components/SetNameChat';
-import Composition from './components/Composition.jsx';
+// import Composition from './components/Composition.jsx';
 // import StoryGenerator from './components/StoryGeneration';
 
 
