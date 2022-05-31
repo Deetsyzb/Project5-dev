@@ -227,7 +227,7 @@ export default function SignIn() {
 			email: data.get('email'),
 			password: data.get('password'),
 		});
-		console.log('chicken')
+		console.log('chicken');
 	};
 
 	return (
