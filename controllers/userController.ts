@@ -35,9 +35,9 @@ const UserController = {
 	},
 	signup: async (req: Request, res: Response) => {
         try {
-            const { name, email, password: passwordBody } = req.body;
+            const { userName, email, password: passwordBody } = req.body;
 
-            if (!name || !email || !passwordBody) return res.status(400).json({ message: "Missing data" });
+            if (!userName || !email || !passwordBody) return res.status(400).json({ message: "Missing data" });
 
             const isUserExists = await User.findOne({ email }).exec();
 
@@ -47,10 +47,9 @@ const UserController = {
             const access_token = crypto.randomBytes(30).toString("hex");
 
             const newUser = await new User({
-                name,
+                userName,
                 email,
                 password,
-                access_token
             }).save();
 
             return res.status(201).json(newUser);
