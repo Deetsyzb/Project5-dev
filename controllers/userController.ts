@@ -7,6 +7,7 @@ import { IUser } from '../types/types';
 const UserController = {
 	login: async (req: Request, res: Response) => {
 		try {
+			console.log('hello world')
 			const { email, password } = req.body;
 
 			if (!email || !password)
@@ -31,5 +32,9 @@ const UserController = {
 			return res.status(500).json({ message: 'Internal Server Error' });
 		}
 	},
+	helloworld: (req: Request, res: Response) => {
+			console.log('testing hello world');
+			res.send ('testing');
+	}
 };
 export default UserController;
