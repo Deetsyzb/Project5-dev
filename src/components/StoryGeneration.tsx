@@ -79,18 +79,16 @@ export default function StoryGenerator() {
 		var text = quill.getText(0);
 		console.log('quill internal', text);
 		console.log('prompt', inputPassage);
-		const retrieveID = localStorage.getItem('userId');
-		console.log(retrieveID);
+	
 		const data = {
 			title: inputPassage,
-			story: text,
-			user_id: retrieveID,
+			content: text,
 		};
-		// axios.post("/save", data).then((response) => {
-		//   if (response.data.success === true) {
-		//     console.log("StorySaved");
-		//   }
-		// });
+		axios.post("http://localhost:3004/save", data).then((response) => {
+		  if (response.data.success === true) {
+		    console.log("StorySaved");
+		  }
+		});
 	};
 
 	return (
@@ -144,7 +142,3 @@ export default function StoryGenerator() {
 function _req(_req: any, res: any) {
   throw new Error('Function not implemented.');
 }
-// curl https://api.openai.com/v1/engines/text-davinci-002/completions \
-// -H "Content-Type: application/json" \
-// -H "Authorization: Bearer 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" \
-// -d '{"prompt": "Say this is a test", "temperature": 0, "max_tokens": 6}'
