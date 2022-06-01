@@ -13,10 +13,11 @@ const StoryController = {
         console.log("content", content)
 
         const newStory = await new Story
-        ({creatorID:"test",
-        title: title, 
-        content: content}).save()
+        ({
+         title, 
+        content}).save()
 
+          console.log("new",newStory.title, newStory.content)
         return res.status(200).json(newStory);
     } 
   }
