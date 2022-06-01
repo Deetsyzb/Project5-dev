@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
 import { io } from 'socket.io-client';
+import './App.css' ;
+
 
 export default function Composition() {
 	const [socket, setSocket] = useState<any>();
@@ -70,8 +72,14 @@ export default function Composition() {
 
 			wrapper.innerHTML = '';
 			const editor = document.createElement('div');
+			editor.setAttribute('id','scrollme')
 			wrapper.append(editor);
-			const q = new Quill(editor, { theme: 'snow' });
+			const options = {	
+				placeholder: 'Compose an epic...',
+				theme: 'snow',
+				scrollingContainer: "#scrollme"
+			};
+			const q = new Quill(editor, options);
 			const skeleton = sessionStorage.getItem('Story'!);
 			console.log('skeleton2', skeleton);
 			if (skeleton != null) {

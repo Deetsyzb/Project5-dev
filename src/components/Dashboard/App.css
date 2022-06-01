@@ -187,3 +187,15 @@ body {
 .hide {
   opacity: 0 !important;
 }
+
+
+
+#container {
+  height: 90%;
+  min-height: 90%;
+  padding: 10px;
+}
+#container .ql-editor {
+  font-size: 18px;
+  overflow-y: auto;
+}
