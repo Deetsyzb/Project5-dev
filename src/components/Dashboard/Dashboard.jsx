@@ -28,9 +28,9 @@ import HypotheticalGrowthChart from './Charts/HypotheticalGrowth.jsx';
 import XIRRChart from './Charts/XIRR.jsx';
 import TWRChart from './Charts/TWR.jsx';
 import Transactions from './Transactions.jsx';
-import StoryGenerator from './StoryGeneration'
-import Chatroom from './SetNameChat'
-import Chat from './ChatComponent'
+import StoryGenerator from './StoryGeneration';
+import Chatroom from './SetNameChat';
+import Chat from './ChatComponent';
 
 function Copyright(props) {
 	return (
@@ -100,7 +100,7 @@ const mdTheme = createTheme();
 
 function DashboardContent() {
 	const [open, setOpen] = React.useState(true);
-	const [selectedChart, setSelectedChart] = useState('');
+	const [selectedComponent, setSelectedComponent] = useState('');
 	const toggleDrawer = () => {
 		setOpen(!open);
 	};
@@ -134,7 +134,7 @@ function DashboardContent() {
 							noWrap
 							sx={{ flexGrow: 1 }}
 						>
-							Dashboard
+							Story Creator!
 						</Typography>
 						<IconButton color='inherit'>
 							<Badge badgeContent={4} color='secondary'>
@@ -192,43 +192,34 @@ function DashboardContent() {
 							<Button onClick={() => setSelectedChart('XIRR')}>XIRR</Button>
 						</ButtonGroup> */}
 						<Grid container spacing={3}>
-							{/* Chart */}
+							{/* Story Function */}
 							<Grid item xs={12} md={8} lg={9} id='chart-container'>
 								<Paper
 									sx={{
 										p: 2,
 										display: 'flex',
 										flexDirection: 'column',
-										height: 500,
+										height: 600,
 									}}
 								>
-									{selectedChart === '' && <StoryGenerator />}
-									{selectedChart === 'HypotheticalGrowth' && (
+									{selectedComponent === '' && <StoryGenerator />}
+									{/* {selectedChart === 'HypotheticalGrowth' && (
 										<HypotheticalGrowthChart />
 									)}
 									{selectedChart === 'TWR' && <TWRChart />}
-									{selectedChart === 'XIRR' && <XIRRChart />}
+									{selectedChart === 'XIRR' && <XIRRChart />} */}
 								</Paper>
 							</Grid>
-							{/* Recent Deposits */}
+							{/* Chat function */}
 							<Grid item xs={12} md={4} lg={3}>
-								<Paper
-									sx={{
-										p: 2,
-										display: 'flex',
-										flexDirection: 'column',
-										height: 240,
-									}}
-								>
-									<Chatroom />
-								</Paper>
+								<Chatroom />
 							</Grid>
 							{/* Recent Transfers */}
-							<Grid item xs={12}>
+							{/* <Grid item xs={12}>
 								<Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
 									<Transactions />
 								</Paper>
-							</Grid>
+							</Grid> */}
 						</Grid>
 						<Copyright sx={{ pt: 4 }} />
 					</Container>
