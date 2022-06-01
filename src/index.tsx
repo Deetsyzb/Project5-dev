@@ -16,7 +16,7 @@ const Homepage = lazy(() => import('./components/Blog/Blog'));
 const SignUpPage = lazy(() => import('./components/SignUp'));
 const SignInPage = lazy(() => import('./components/SignIn'));
 const Dashboard = lazy(() => import('./components/Dashboard/Dashboard'));
-const Chatroom = lazy(() => import('./components/SetNameChat'));
+const Chatroom = lazy(() => import('./components/Dashboard/SetNameChat'));
 // const Composition = lazy(() => import('./components/Composition.jsx'));
 const StoryGenerator = lazy(() => import('./components/StoryGeneration'));
 
