@@ -1,6 +1,5 @@
 import Story from '../models/Stories'
 import {Response,Request} from 'express'
-import { dblClick } from '@testing-library/user-event/dist/click'
 
 const StoryController = {
   save: async (req: Request, res: Response) => {

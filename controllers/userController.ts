@@ -44,7 +44,7 @@ const UserController = {
             if (isUserExists) return res.status(401).json({ message: "User Already Exists" })
 
             const password = await bcrypt.hash(passwordBody, bcryptConfig.salt);
-            const access_token = crypto.randomBytes(30).toString("hex");
+            // const access_token = crypto.randomBytes(30).toString("hex");
 
             const newUser = await new User({
                 userName,

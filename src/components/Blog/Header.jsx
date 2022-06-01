@@ -11,8 +11,12 @@ import Link from '@mui/material/Link';
 function Header(props) {
 	// const SignInPage = lazy(() => import('./components/SignIn.jsx'))
 	let navigate = useNavigate();
-	const routeChange = () => {
+	const routeSignin = () => {
 		let path = `signin`;
+		navigate(path);
+	};
+	const routeSignup = () => {
+		let path = `signup`;
 		navigate(path);
 	};
 	const { sections, title } = props;
@@ -20,10 +24,12 @@ function Header(props) {
 	return (
 		<React.Fragment>
 			<Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
-				<Button size='small'>Subscribe</Button>
+				<Button onClick={routeSignup} variant='outlined' size='small'>
+					Signup
+				</Button>
 				<Typography
 					component='h2'
-					variant='h5'
+					variant='h2'
 					color='inherit'
 					align='center'
 					noWrap
@@ -34,7 +40,7 @@ function Header(props) {
 				<IconButton>
 					<SearchIcon />
 				</IconButton>
-				<Button onClick={routeChange} variant='outlined' size='small'>
+				<Button onClick={routeSignin} variant='outlined' size='small'>
 					Sign in
 				</Button>
 			</Toolbar>

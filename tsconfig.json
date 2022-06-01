@@ -9,6 +9,7 @@
 		"outDir": "dist/js",
 		"strict": true,
 		"forceConsistentCasingInFileNames": true,
+		"typeRoots": [ "<types-directory-created-in-#1>", "./node_modules/@types"],
 		"noFallthroughCasesInSwitch": true,
 		"module": "commonjs",
 		"moduleResolution": "node",
