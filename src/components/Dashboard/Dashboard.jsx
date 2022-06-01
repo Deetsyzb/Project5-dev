@@ -29,6 +29,8 @@ import XIRRChart from './Charts/XIRR.jsx';
 import TWRChart from './Charts/TWR.jsx';
 import Transactions from './Transactions.jsx';
 import StoryGenerator from './StoryGeneration'
+import Chatroom from './SetNameChat'
+import Chat from './ChatComponent'
 
 function Copyright(props) {
 	return (
@@ -218,7 +220,7 @@ function DashboardContent() {
 										height: 240,
 									}}
 								>
-									<Deposits />
+									<Chatroom />
 								</Paper>
 							</Grid>
 							{/* Recent Transfers */}

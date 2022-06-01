@@ -23,7 +23,6 @@ function Chatroom() {
     <div >
       
       <div className ="App">
-        <Composition />
         {!showChat ?(
         <div className ="joinChatContainer">
         <h3>Join Chat</h3>
