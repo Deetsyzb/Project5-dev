@@ -57,6 +57,16 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('receive-changes', delta);
   });
 
+  socket.on('skeleton', (start) => {
+    console.log('61skeleton',start)
+    socket.broadcast.emit('receive-skeleton', start);
+  })
+
+  socket.on('joinSession', () => {
+    console.log('Session Request')
+    socket.broadcast.emit('sendskelly')
+  })
+
   socket.on('disconnect', () => {
     console.log('User Disconnected:', socket.id);
   });
