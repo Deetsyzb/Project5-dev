@@ -4,6 +4,7 @@ import 'regenerator-runtime/runtime';
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
 import axios from 'axios';
+import { Link, useNavigate } from "react-router-dom";
 
 // import dotenv from 'dotenv';
 // dotenv.config();
@@ -82,13 +83,18 @@ export default function StoryGenerator() {
 	
 		const data = {
 			title: inputPassage,
-			content: text,
+			story: text,
+			genre: inputGenre
 		};
-		axios.post("http://localhost:3004/save", data).then((response) => {
-		  if (response.data.success === true) {
-		    console.log("StorySaved");
-		  }
-		});
+		sessionStorage.setItem('Title',data.title)
+		sessionStorage.setItem('Story',data.story)
+		sessionStorage.setItem('Genre',data.genre)
+		// Add navigation to button
+		// axios.post("http://localhost:3004/save", data).then((response) => {
+		//   if (response.data.success === true) {
+		//     console.log("StorySaved");
+		//   }
+		// });
 	};
 
 	return (
@@ -133,7 +139,7 @@ export default function StoryGenerator() {
 
 			<span ref={wrapperRef}>{''}</span>
 			<button className='btn' type='submit' onClick={retrieveQuill}>
-				Save
+				<Link to="/chat">Save</Link>
 			</button>
 		</div>
 	);

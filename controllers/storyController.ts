@@ -11,9 +11,8 @@ const StoryController = {
         console.log("title", title)
         console.log("content", content)
 
-        const newStory = await new Story
-        ({
-         title, 
+        const newStory = await new Story({
+        title, 
         content}).save()
 
           console.log("new",newStory.title, newStory.content)
