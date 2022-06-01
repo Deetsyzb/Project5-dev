@@ -4,13 +4,13 @@ import 'regenerator-runtime/runtime';
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
 import axios from 'axios';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 
 // import dotenv from 'dotenv';
 // dotenv.config();
 
 const configuration = new Configuration({
-	apiKey: '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',
+	apiKey: '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',
 });
 const openai = new OpenAIApi(configuration);
 
@@ -26,24 +26,24 @@ export default function StoryGenerator() {
 
 	const buttonHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
 		event.preventDefault();
-    const submitPrompt = async () => {
-      const response: any = await openai.createCompletion('text-davinci-002', {
-        prompt: `I am a highly creative writer given the title of a story and a genre that you like, I shall generate a long form story with a named character. \n\n\n \nTitle: ${inputPassage} Genre: ${inputGenre} \n\n\n\n`,
-        temperature: 1,
-        max_tokens: 1037,
-        top_p: 1,
-        best_of: 2,
-        frequency_penalty: 0,
-        presence_penalty: 0,
-      });
-  
-      console.log(response.data.choices[0].text);
-      setResponse(response.data.choices[0].text);
-    };
+		const submitPrompt = async () => {
+			const response: any = await openai.createCompletion('text-davinci-002', {
+				prompt: `I am a highly creative writer given the title of a story and a genre that you like, I shall generate a long form story with a named character. \n\n\n \nTitle: ${inputPassage} Genre: ${inputGenre} \n\n\n\n`,
+				temperature: 1,
+				max_tokens: 1037,
+				top_p: 1,
+				best_of: 2,
+				frequency_penalty: 0,
+				presence_penalty: 0,
+			});
+
+			console.log(response.data.choices[0].text);
+			setResponse(response.data.choices[0].text);
+		};
 
 		const button: HTMLButtonElement = event.currentTarget;
 		setClickedButton(button.name);
-    submitPrompt()
+		submitPrompt();
 	};
 
 	const retrieveInput = (event: { target: { value: any } }) => {
@@ -80,21 +80,21 @@ export default function StoryGenerator() {
 		var text = quill.getText(0);
 		console.log('quill internal', text);
 		console.log('prompt', inputPassage);
-	
+
 		const data = {
 			title: inputPassage,
-			story: text,
-			genre: inputGenre
+			content: text,
+			genre: inputGenre,
 		};
-		sessionStorage.setItem('Title',data.title)
-		sessionStorage.setItem('Story',data.story)
-		sessionStorage.setItem('Genre',data.genre)
+		sessionStorage.setItem('Title', data.title);
+		sessionStorage.setItem('Content', data.content);
+		sessionStorage.setItem('Genre', data.genre);
 		// Add navigation to button
-		// axios.post("http://localhost:3004/save", data).then((response) => {
-		//   if (response.data.success === true) {
-		//     console.log("StorySaved");
-		//   }
-		// });
+		axios.post('http://localhost:3004/save', data).then((response) => {
+			if (response.data.success === true) {
+				console.log('StorySaved');
+			}
+		});
 	};
 
 	return (
@@ -146,5 +146,5 @@ export default function StoryGenerator() {
 }
 
 function _req(_req: any, res: any) {
-  throw new Error('Function not implemented.');
+	throw new Error('Function not implemented.');
 }

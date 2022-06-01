@@ -7,15 +7,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 
-
-
-	
 const Homepage = lazy(() => import('./components/Blog/Blog'));
 const SignUpPage = lazy(() => import('./components/SignUp'));
 const SignInPage = lazy(() => import('./components/SignIn'));
 const Dashboard = lazy(() => import('./components/Dashboard/Dashboard'));
-const Chatroom = lazy(() => import('./components/Dashboard/SetNameChat'));
-const StoryGenerator = lazy(() => import('./components/StoryGeneration'));
 
 const rootElement = document.createElement('div');
 
@@ -40,9 +35,7 @@ root.render(
 			}
 		>
 			<Routes>
-				<Route path='storygenerator' element={<StoryGenerator />} />
 				<Route path='/' element={<Homepage />} />
-				<Route path='chat' element={<Chatroom />} />
 				<Route path='signup' element={<SignUpPage />} />
 				<Route path='signin' element={<SignInPage />} />
 				<Route path='dashboard' element={<Dashboard />} />
