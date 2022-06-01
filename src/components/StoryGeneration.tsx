@@ -89,7 +89,7 @@ export default function StoryGenerator() {
 		sessionStorage.setItem('Title',data.title)
 		sessionStorage.setItem('Story',data.story)
 		sessionStorage.setItem('Genre',data.genre)
-		// Add navigation to button
+		
 		// axios.post("http://localhost:3004/save", data).then((response) => {
 		//   if (response.data.success === true) {
 		//     console.log("StorySaved");
