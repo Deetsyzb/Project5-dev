@@ -4,6 +4,7 @@ import 'regenerator-runtime/runtime';
 import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
 import axios from 'axios';
+import { Link, useNavigate } from "react-router-dom";
 
 // import dotenv from 'dotenv';
 // dotenv.config();
@@ -79,14 +80,17 @@ export default function StoryGenerator() {
 		var text = quill.getText(0);
 		console.log('quill internal', text);
 		console.log('prompt', inputPassage);
-		const retrieveID = localStorage.getItem('userId');
-		console.log(retrieveID);
+	
 		const data = {
 			title: inputPassage,
 			story: text,
-			user_id: retrieveID,
+			genre: inputGenre
 		};
-		// axios.post("/save", data).then((response) => {
+		sessionStorage.setItem('Title',data.title)
+		sessionStorage.setItem('Story',data.story)
+		sessionStorage.setItem('Genre',data.genre)
+		// Add navigation to button
+		// axios.post("http://localhost:3004/save", data).then((response) => {
 		//   if (response.data.success === true) {
 		//     console.log("StorySaved");
 		//   }
@@ -135,7 +139,7 @@ export default function StoryGenerator() {
 
 			<span ref={wrapperRef}>{''}</span>
 			<button className='btn' type='submit' onClick={retrieveQuill}>
-				Save
+				Publish
 			</button>
 		</div>
 	);
@@ -144,7 +148,3 @@ export default function StoryGenerator() {
 function _req(_req: any, res: any) {
   throw new Error('Function not implemented.');
 }
-// curl https://api.openai.com/v1/engines/text-davinci-002/completions \
-// -H "Content-Type: application/json" \
-// -H "Authorization: Bearer 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" \
-// -d '{"prompt": "Say this is a test", "temperature": 0, "max_tokens": 6}'

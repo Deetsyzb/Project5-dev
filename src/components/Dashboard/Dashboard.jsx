@@ -20,17 +20,9 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
-import { mainListItems, secondaryListItems } from './listItems.jsx';
-import Deposits from './Deposits.jsx';
-import Transfers from './Transactions.jsx';
-import NetLiqChart from './Charts/NetLiqChart.jsx';
-import HypotheticalGrowthChart from './Charts/HypotheticalGrowth.jsx';
-import XIRRChart from './Charts/XIRR.jsx';
-import TWRChart from './Charts/TWR.jsx';
-import Transactions from './Transactions.jsx';
 import StoryGenerator from './StoryGeneration';
 import Chatroom from './SetNameChat';
-import Chat from './ChatComponent';
+import Composition from './Composition'
 
 function Copyright(props) {
 	return (
@@ -203,12 +195,11 @@ function DashboardContent() {
 									}}
 								>
 									{selectedComponent === '' && <StoryGenerator />}
-									{/* {selectedChart === 'HypotheticalGrowth' && (
-										<HypotheticalGrowthChart />
-									)}
-									{selectedChart === 'TWR' && <TWRChart />}
-									{selectedChart === 'XIRR' && <XIRRChart />} */}
+									{selectedComponent === '1' && <Composition />}
 								</Paper>
+								<Button onClick={() => setSelectedComponent('1')}>
+									Collborate
+								</Button>
 							</Grid>
 							{/* Chat function */}
 							<Grid item xs={12} md={4} lg={3}>
