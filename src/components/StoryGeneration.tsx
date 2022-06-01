@@ -82,7 +82,7 @@ export default function StoryGenerator() {
 	
 		const data = {
 			title: inputPassage,
-			story: text,
+			content: text,
 		};
 		axios.post("http://localhost:3004/save", data).then((response) => {
 		  if (response.data.success === true) {
