@@ -8,6 +8,8 @@ import Markdown from './Markdown.jsx';
 function Main(props) {
   const { posts, title } = props;
 
+  
+
   return (
     <Grid
       item
@@ -19,7 +21,7 @@ function Main(props) {
         },
       }}
     >
-      <Typography variant="h6" gutterBottom>
+      <Typography variant="h3" gutterBottom>
         {title}
       </Typography>
       <Divider />
