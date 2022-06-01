@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState } from 'react';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import MuiDrawer from '@mui/material/Drawer';
+// import MuiDrawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
 import MuiAppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -68,31 +68,31 @@ const AppBar = styled(MuiAppBar, {
 	}),
 }));
 
-const Drawer = styled(MuiDrawer, {
-	shouldForwardProp: (prop) => prop !== 'open',
-})(({ theme, open }) => ({
-	'& .MuiDrawer-paper': {
-		position: 'relative',
-		whiteSpace: 'nowrap',
-		width: drawerWidth,
-		transition: theme.transitions.create('width', {
-			easing: theme.transitions.easing.sharp,
-			duration: theme.transitions.duration.enteringScreen,
-		}),
-		boxSizing: 'border-box',
-		...(!open && {
-			overflowX: 'hidden',
-			transition: theme.transitions.create('width', {
-				easing: theme.transitions.easing.sharp,
-				duration: theme.transitions.duration.leavingScreen,
-			}),
-			width: theme.spacing(7),
-			[theme.breakpoints.up('sm')]: {
-				width: theme.spacing(9),
-			},
-		}),
-	},
-}));
+// const Drawer = styled(MuiDrawer, {
+// 	shouldForwardProp: (prop) => prop !== 'open',
+// })(({ theme, open }) => ({
+// 	'& .MuiDrawer-paper': {
+// 		position: 'relative',
+// 		whiteSpace: 'nowrap',
+// 		width: drawerWidth,
+// 		transition: theme.transitions.create('width', {
+// 			easing: theme.transitions.easing.sharp,
+// 			duration: theme.transitions.duration.enteringScreen,
+// 		}),
+// 		boxSizing: 'border-box',
+// 		...(!open && {
+// 			overflowX: 'hidden',
+// 			transition: theme.transitions.create('width', {
+// 				easing: theme.transitions.easing.sharp,
+// 				duration: theme.transitions.duration.leavingScreen,
+// 			}),
+// 			width: theme.spacing(7),
+// 			[theme.breakpoints.up('sm')]: {
+// 				width: theme.spacing(9),
+// 			},
+// 		}),
+// 	},
+// }));
 
 const mdTheme = createTheme();
 
@@ -141,7 +141,7 @@ function DashboardContent() {
 						</IconButton>
 					</Toolbar>
 				</AppBar>
-				<Drawer variant='permanent' open={open}>
+				{/* <Drawer variant='permanent' open={open}>
 					<Toolbar
 						sx={{
 							display: 'flex',
@@ -160,7 +160,7 @@ function DashboardContent() {
 						<Divider sx={{ my: 1 }} />
 						{secondaryListItems}
 					</List>
-				</Drawer>
+				</Drawer> */}
 				<Box
 					component='main'
 					sx={{
@@ -175,7 +175,7 @@ function DashboardContent() {
 				>
 					<Toolbar />
 					<Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
-						<ButtonGroup
+						{/* <ButtonGroup
 							onSelectChart={setSelectedChart}
 							variant='outlined'
 							aria-label='outlined button group'
@@ -188,7 +188,7 @@ function DashboardContent() {
 							</Button>
 							<Button onClick={() => setSelectedChart('TWR')}>TWR</Button>
 							<Button onClick={() => setSelectedChart('XIRR')}>XIRR</Button>
-						</ButtonGroup>
+						</ButtonGroup> */}
 						<Grid container spacing={3}>
 							{/* Chart */}
 							<Grid item xs={12} md={8} lg={9} id='chart-container'>

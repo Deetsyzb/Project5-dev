@@ -3,11 +3,12 @@ import jwt from 'jsonwebtoken';
 import { Response, Request } from 'express';
 import User from '../models/User';
 import { IUser } from '../types/types';
+import bcryptConfig from '../config/bcrypt';
+import crypto from 'crypto'
 
 const UserController = {
 	login: async (req: Request, res: Response) => {
 		try {
-			console.log('hello world')
 			const { email, password } = req.body;
 
 			if (!email || !password)
@@ -32,9 +33,32 @@ const UserController = {
 			return res.status(500).json({ message: 'Internal Server Error' });
 		}
 	},
-	helloworld: (req: Request, res: Response) => {
-			console.log('testing hello world');
-			res.send ('testing');
-	}
+	signup: async (req: Request, res: Response) => {
+        try {
+            const { userName, email, password: passwordBody } = req.body;
+
+            if (!userName || !email || !passwordBody) return res.status(400).json({ message: "Missing data" });
+
+            const isUserExists = await User.findOne({ email }).exec();
+
+            if (isUserExists) return res.status(401).json({ message: "User Already Exists" })
+
+            const password = await bcrypt.hash(passwordBody, bcryptConfig.salt);
+            const access_token = crypto.randomBytes(30).toString("hex");
+
+            const newUser = await new User({
+                userName,
+                email,
+                password,
+            }).save();
+
+            return res.status(201).json(newUser);
+
+        } catch (err) {
+            return res.status(500).json({ message: "Internal Server Error" });
+        }
+    },
+
 };
 export default UserController;
+
