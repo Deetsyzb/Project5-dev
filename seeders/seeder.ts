@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import User from "../models/User";
+import Stories from "../models/Stories"
 import bcrypt from "bcrypt";
 
 dotenv.config();
@@ -28,6 +29,8 @@ const runSeeder = async () => {
 	console.log('test');
 	// delete all existing records in the DB
 	await User.deleteMany({});
+	// delete all existing stories in the DB
+	await Stories.deleteMany({});
 	// inserts seed data
 	const users = await User.insertMany(userSeeds);
 	console.log('Inserted userSeeds. This is the result: ', users);

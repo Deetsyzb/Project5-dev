@@ -22,7 +22,7 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
 import StoryGenerator from './StoryGeneration';
 import Chatroom from './SetNameChat';
-import Composition from './Composition'
+import Composition from './Composition';
 
 function Copyright(props) {
 	return (
@@ -61,32 +61,6 @@ const AppBar = styled(MuiAppBar, {
 		}),
 	}),
 }));
-
-// const Drawer = styled(MuiDrawer, {
-// 	shouldForwardProp: (prop) => prop !== 'open',
-// })(({ theme, open }) => ({
-// 	'& .MuiDrawer-paper': {
-// 		position: 'relative',
-// 		whiteSpace: 'nowrap',
-// 		width: drawerWidth,
-// 		transition: theme.transitions.create('width', {
-// 			easing: theme.transitions.easing.sharp,
-// 			duration: theme.transitions.duration.enteringScreen,
-// 		}),
-// 		boxSizing: 'border-box',
-// 		...(!open && {
-// 			overflowX: 'hidden',
-// 			transition: theme.transitions.create('width', {
-// 				easing: theme.transitions.easing.sharp,
-// 				duration: theme.transitions.duration.leavingScreen,
-// 			}),
-// 			width: theme.spacing(7),
-// 			[theme.breakpoints.up('sm')]: {
-// 				width: theme.spacing(9),
-// 			},
-// 		}),
-// 	},
-// }));
 
 const mdTheme = createTheme();
 
