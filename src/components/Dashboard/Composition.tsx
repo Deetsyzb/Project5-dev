@@ -3,13 +3,14 @@ import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
 import { io } from 'socket.io-client';
 import './App.css' ;
+import axios from 'axios';
 
 
 export default function Composition() {
 	const [socket, setSocket] = useState<any>();
 	const [quill, setQuill] = useState<any>();
 	const [skelly, setSkeleton] = useState<any>();
-
+const skeleton = sessionStorage.getItem('Content'!);
 	console.log('checkskelly', skelly);
 
 	if (socket != null) {
@@ -80,7 +81,7 @@ export default function Composition() {
 				scrollingContainer: ".scrollme"
 			};
 			const q = new Quill(editor, options);
-			const skeleton = sessionStorage.getItem('Story'!);
+			
 			console.log('skeleton2', skeleton);
 			if (skeleton != null) {
 				q.setText(skeleton.toString());
@@ -90,7 +91,35 @@ export default function Composition() {
 			setQuill(q);
 		},
 		[]
-	);
+	);	
 
-	return <div className='quillcontainer' ref={wrapperRef}></div>;
+	const Title =	sessionStorage.getItem('Title')
+	const Genre =	sessionStorage.getItem('Genre')
+	
+		const saveToDB = () => {
+		var text = quill.getText(0);
+		console.log('quill internal', text);
+	
+
+		const data = {
+			title: Title,
+			content: text,
+			genre: Genre,
+		};
+
+		// Add navigation to button
+		axios.post('http://localhost:3004/save', data).then((response) => {
+			if (response.data.success === true) {
+				console.log('StorySaved');
+			}
+		});
+	};
+
+	return <div>
+	<h4>Title:{Title}</h4>
+	<h4>Genre:{Genre}</h4>
+	<div className='quillcontainer' ref={wrapperRef}></div>
+	<button className='btn' type='submit' onClick={saveToDB}>
+				Save
+			</button></div>;
 }
